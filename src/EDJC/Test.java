@@ -1,6 +1,11 @@
 package EDJC;
 
+import EDJC.seguridad.IllegalPasswordLengthException;
+import EDJC.seguridad.TipoUsuario;
+import EDJC.seguridad.Usuario;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /*
  * To change this template, choose Tools | Templates
@@ -16,9 +21,25 @@ public class Test {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        /*
+         * Testing SalaLayout
+         */
         SalaLayout sl = new SalaLayout(4,5);
         sl.setTodasVisibles();
+        sl.setSilla(2, 3, false);
         System.out.println(sl);
+        
+        /*
+         * Testing usuario
+         */
+        Usuario us = new Usuario("Pascualito", "123456#", TipoUsuario.ADMINISTRADOR);
+        String pass = "nada";
+        try {
+            System.out.println("Trying to assigns " + pass + " as the password for " + us.getUsername());
+            us.setPassword(pass);
+        } catch (IllegalPasswordLengthException ex) {
+            System.out.println("ups " + pass + " has " + (6 - pass.length()) + " less than the required six caracters");
+        }
     }
 }

@@ -55,6 +55,9 @@ public class SalaLayout {
         sillas = new boolean[filas][cols];
     }
 
+    /**
+     * Establece visibles todas las sillas con la ayuda de <code>Arrays.fill(array, value)</code>
+     */
     public void setTodasVisibles(){
         for(int i = 0; i < filas; i++){
             java.util.Arrays.fill(sillas[i], true);
