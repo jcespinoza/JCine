@@ -1,4 +1,4 @@
-package EDJC;
+package EDJC.salas;
 
 /*
  * To change this template, choose Tools | Templates

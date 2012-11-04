@@ -4,6 +4,8 @@
  */
 package EDJC;
 
+import EDJC.salas.SalaCine;
+import EDJC.seguridad.Usuario;
 import java.util.ArrayList;
 
 /**
@@ -12,4 +14,5 @@ import java.util.ArrayList;
  */
 public class Cine{
     ArrayList<SalaCine> salas;
+    ArrayList<Usuario> usuarios;
 }
