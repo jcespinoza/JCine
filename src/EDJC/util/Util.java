@@ -18,6 +18,10 @@ public class Util {
      * @return Una String con la transformacion.
      */
     public static String toTitleCase(String cad){
-        return ":D";
+        if(cad != null && cad.length()>0){
+            cad=cad.replace(cad.substring(0, 1),cad.substring(0,1).toUpperCase());
+            return cad;
+        }
+        throw new NullPointerException();
     }
 }
