@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <TabPane layoutX="284.0" layoutY="28.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="Untitled Tab 1">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+        <Tab text="Untitled Tab 2">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </Tab>
+        <Tab text="Untitled Tab">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <Accordion layoutX="28.0" layoutY="111.0" />
+                <Accordion>
+                  <expandedPane>
+                    <TitledPane fx:id="x1" animated="false" text="untitled">
+                      <content>
+                        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                      </content>
+                    </TitledPane>
+                  </expandedPane>
+                  <panes>
+                    <TitledPane animated="false" text="untitled" />
+                    <fx:reference source="x1" />
+                  </panes>
+                </Accordion>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <Button layoutX="108.0" layoutY="233.0" mnemonicParsing="false" text="Button" />
+    <CheckBox layoutX="265.0" layoutY="271.0" mnemonicParsing="false" text="CheckBox" />
+    <ChoiceBox layoutX="35.0" layoutY="128.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <ColorPicker layoutX="92.0" layoutY="33.0" />
+    <ComboBox layoutX="73.0" layoutY="303.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="356.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../../../../../../Pictures/Logo%20del%20Colegio.jpg" preserveRatio="false" smooth="false" />
+      </image>
+    </ImageView>
+    <ListView layoutX="195.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0" />
+    <MenuBar layoutY="9.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Delete" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <MenuButton layoutX="193.0" layoutY="345.0" mnemonicParsing="false" text="MenuButton">
+      <items>
+        <MenuItem mnemonicParsing="false" text="Action 1" />
+        <MenuItem mnemonicParsing="false" text="Action 2" />
+      </items>
+    </MenuButton>
+    <Slider layoutX="24.0" layoutY="352.0" />
+    <ScrollBar layoutX="486.0" layoutY="188.0" />
+    <ScrollBar layoutX="574.0" layoutY="78.0" orientation="VERTICAL" prefHeight="308.0" />
+    <Polygon fill="DODGERBLUE" layoutX="141.0" layoutY="138.0" scaleX="1.08" stroke="BLACK" strokeType="INSIDE">
+      <points>
+        <Double fx:value="-50.0" />
+        <Double fx:value="40.0" />
+        <Double fx:value="50.0" />
+        <Double fx:value="40.0" />
+        <Double fx:value="0.0" />
+        <Double fx:value="-60.0" />
+      </points>
+    </Polygon>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="86.0" layoutX="284.0" layoutY="114.0" stroke="BLACK" strokeType="INSIDE" width="97.0" />
+    <Ellipse fill="DODGERBLUE" layoutX="89.0" layoutY="319.0" radiusX="54.0" radiusY="48.0" stroke="BLACK" strokeType="INSIDE" />
+    <CubicCurve controlX1="-52.0" controlX2="-63.0" controlY1="-222.0" controlY2="197.0" endX="59.0" endY="18.0" fill="DODGERBLUE" layoutX="333.0" layoutY="294.0" startX="-137.0" startY="19.0" stroke="BLACK" />
+    <VBox layoutX="35.0" layoutY="71.0" prefHeight="200.0" prefWidth="100.0" />
+  </children>
+</AnchorPane>

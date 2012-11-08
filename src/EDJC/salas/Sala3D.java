@@ -5,7 +5,6 @@
 package EDJC.salas;
 
 import EDJC.peliculas.Pelicula;
-import EDJC.peliculas.Pelicula3D;
 
 /**
  *
@@ -19,7 +18,6 @@ public class Sala3D extends SalaCine{
      */
     @Override
     public void agregarPelicula(Pelicula peli) {
-        if(peli instanceof Pelicula3D)
-            this.peliculas.add(peli);
+        this.peliculas.add(peli);
     }
 }

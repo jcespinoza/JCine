@@ -4,11 +4,15 @@
  */
 package EDJC.ventanas;
 
+import EDJC.seguridad.Usuario;
+import javax.swing.JButton;
+
 /**
  *
  * @author Jay C Espinoza
  */
 public class RegisterForm extends javax.swing.JDialog {
+    private Usuario user;
 
     /**
      * Creates new form RegisterForm
@@ -29,7 +33,6 @@ public class RegisterForm extends javax.swing.JDialog {
 
         jButton1 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox();
-        jButton2 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -42,13 +45,10 @@ public class RegisterForm extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
-        jButton1.setText("Entrar");
+        jButton1.setText("Registrar");
 
         jComboBox1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Cliente" }));
-
-        jButton2.setFont(new java.awt.Font("Lucida Calligraphy", 0, 10)); // NOI18N
-        jButton2.setText("Registrar");
 
         jPasswordField1.setFont(new java.awt.Font("Cooper Black", 1, 14)); // NOI18N
         jPasswordField1.setText("superlongpassword");
@@ -70,7 +70,7 @@ public class RegisterForm extends javax.swing.JDialog {
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel4.setText("                 DESIGN PROTOTYPE ONLY");
+        jLabel4.setText("            DESIGN PROTOTYPE ONLY");
 
         jTextField1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         jTextField1.setText("thisisnotmypassword");
@@ -89,11 +89,7 @@ public class RegisterForm extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 327, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                     .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -104,8 +100,11 @@ public class RegisterForm extends javax.swing.JDialog {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                             .addComponent(jTextField1)
-                            .addComponent(jTextField2))))
-                .addGap(38, 38, 38))
+                            .addComponent(jTextField2)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,24 +123,27 @@ public class RegisterForm extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jPasswordField1ActionPerformed
 
+    public Usuario showM(){
+        setVisible(true);
+        
+        return null;
+    }
     /**
      * @param args the command line arguments
      */
@@ -185,7 +187,6 @@ public class RegisterForm extends javax.swing.JDialog {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

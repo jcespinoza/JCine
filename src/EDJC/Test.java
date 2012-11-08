@@ -4,6 +4,7 @@ import EDJC.salas.SalaLayout;
 import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.TipoUsuario;
 import EDJC.seguridad.Usuario;
+import java.util.ArrayList;
 
 /*
  * To change this template, choose Tools | Templates
@@ -39,5 +40,10 @@ public class Test {
         } catch (IllegalPasswordLengthException ex) {
             System.out.println("ups! \"" + pass + "\" has " + (6 - pass.length()) + " less than the required six characters");
         }
+    }
+    
+    public static void testLogin(){
+        ArrayList<Usuario> users = new ArrayList<>();
+        
     }
 }
