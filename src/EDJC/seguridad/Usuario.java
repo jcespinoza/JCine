@@ -4,9 +4,6 @@
  */
 package EDJC.seguridad;
 
-import java.util.logging.Logger;
-import sun.security.util.Password;
-
 /**
  *
  * @author Jay C Espinoza
@@ -15,14 +12,13 @@ public class Usuario {
     private String username;
     private char[] password;
     private String NombreCompleto;
-    private TipoUsuario tipo;
     private boolean CredencialActiva = true;
     
-    public Usuario(String username, char[] pass, TipoUsuario tipo){
+    public Usuario(String username, char[] pass){
         this.username = username;
         password = pass;
-        this.tipo = tipo;
     }
+    
     /**
      * Metodo para comparar objetos de tipo Usuario.
      * @param obj el <code>Object</code> con el cual se va a comparar.
@@ -33,10 +29,9 @@ public class Usuario {
     @Override
     public boolean equals(Object obj){
         boolean sameObjectType = obj instanceof Usuario;
-        boolean sameType = this.tipo == ((Usuario)obj).tipo;
-        boolean sameUsername = this.username == ((Usuario)obj).username;
-        boolean sameNombreCompleto = this.NombreCompleto == ((Usuario)obj).NombreCompleto;
-        return sameObjectType && sameUsername && sameNombreCompleto && sameType;
+        boolean sameUsername = this.username.equals( ((Usuario)obj).username);
+        boolean sameNombreCompleto = this.NombreCompleto.equals( ((Usuario)obj).NombreCompleto);
+        return sameObjectType && sameUsername && sameNombreCompleto;
     }
 
     @Override
@@ -60,10 +55,6 @@ public class Usuario {
         this.password = password;
     }
 
-    public void setTipo(TipoUsuario tipo){
-        this.tipo = tipo;
-    }
-
     public void setCredencialActiva(boolean CredencialActiva) {
         this.CredencialActiva = CredencialActiva;
     }
@@ -74,10 +65,6 @@ public class Usuario {
 
     public char[] getPassword() {
         return password;
-    }
-
-    public TipoUsuario getTipo() {
-        return tipo;
     }
 
     public boolean isCredencialActiva() {

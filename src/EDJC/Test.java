@@ -2,7 +2,6 @@ package EDJC;
 
 import EDJC.salas.SalaLayout;
 import EDJC.seguridad.IllegalPasswordLengthException;
-import EDJC.seguridad.TipoUsuario;
 import EDJC.seguridad.Usuario;
 import java.util.ArrayList;
 
@@ -32,7 +31,7 @@ public class Test {
         /*
          * Testing usuario
          */
-        Usuario us = new Usuario("Pascualito", "123456#".toCharArray(), TipoUsuario.ADMINISTRADOR);
+        Usuario us = new Usuario("Pascualito", "123456#".toCharArray());
         String pass = "nada";
         try {
             System.out.println("Trying to assign \"" + pass + "\" as the password for " + us.getUsername());
