@@ -6,7 +6,7 @@
 package EDJC.ventanas;
 
 /*********************/
-ESTA MIERDA NO FUNCIONA
+//ESTA MIERDA NO FUNCIONA
 /*********************/
 //io.File para cuando se crea el archivo
 import java.io.File;

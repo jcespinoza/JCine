@@ -1,5 +1,5 @@
 /****************/
-this shit doesnt work it always throws the exceptions
+//this shit doesnt work it always throws the exceptions
 /*****************************/
 
 /*
