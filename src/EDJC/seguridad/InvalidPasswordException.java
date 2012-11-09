@@ -12,6 +12,5 @@ public class InvalidPasswordException extends Exception{
 
     public InvalidPasswordException() {
         super("El password suministrado es invalido");
-    }
-    
+    }   
 }
