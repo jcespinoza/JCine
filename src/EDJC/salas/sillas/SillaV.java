@@ -16,10 +16,10 @@ import javax.swing.JButton;
  * @author Jay C Espinoza
  */
 public abstract class SillaV extends JButton implements SillaI, MouseListener{
-    private int numero;
-    private Coordenada coordenada;
-    private char fila;
-    private String fullName;
+    protected int numero;
+    protected Coordenada coordenada;
+    protected char fila;
+    protected String fullName;
     
     public SillaV(int num, char fila){
         super("" + num);
