@@ -22,5 +22,7 @@ public class Pelicula {
         this.clasificacion = c;
     }
     
-    
+    public boolean is3D(){
+        return (this instanceof Pelicula3D);
+    }
 }

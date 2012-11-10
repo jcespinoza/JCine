@@ -4,12 +4,25 @@
  */
 package EDJC.salas;
 
-import javax.swing.JPanel;
+import EDJC.SillaI;
+import java.awt.Container;
+import java.util.ArrayList;
 
 /**
  *
  * @author Jay C Espinoza
  */
-public class Sillero extends JPanel{
+public class Sillero extends Container implements Tablero{
+    protected SillaI sillas[][];
+
+    @Override
+    public int getFilas() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public int getColumnas() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
     
 }
