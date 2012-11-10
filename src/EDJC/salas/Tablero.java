@@ -14,5 +14,4 @@ public interface Tablero{
     Dimension getSize();
     int getFilas();
     int getColumnas();
-    
 }

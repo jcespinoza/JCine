@@ -11,18 +11,21 @@ import java.util.ArrayList;
  *
  * @author Jay C Espinoza
  */
-public abstract class SalaCine {
+public abstract class SalaCine implements SalaI{
     protected SalaLayout layout;
     protected Tablero sillas;
     protected ArrayList<Pelicula> peliculas;
     protected double precioTicket;
     
+    @Override
     public abstract void agregarPelicula(Pelicula peli);
     
+    @Override
     public Tablero getSillero(){
         return sillas;
     }
     
+    @Override
     public double getPrecioTicket(){
         return this.precioTicket;
     }
