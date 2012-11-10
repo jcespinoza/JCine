@@ -9,6 +9,10 @@ package EDJC.util;
  * @author Jay C Espinoza
  */
 public class Util {
+    
+    /**
+     * Don't let anyone instantiate this class. :D Just like Math !^_^!
+     */
     private Util(){}
     
     /**
@@ -19,9 +23,28 @@ public class Util {
      */
     public static String toTitleCase(String cad){
         if(cad != null && cad.length()>0){
-            cad=cad.replace(cad.substring(0, 1),cad.substring(0,1).toUpperCase());
+            //cad=cad.replace(cad.substring(0, 1),cad.substring(0,1).toUpperCase());
+            cad = cad.toUpperCase().charAt(0) + cad.substring(1).toLowerCase();
             return cad;
         }
         throw new NullPointerException();
+    }
+    
+    public static boolean passwordsMatch(char[] pass1, char[] pass2){
+        for(int i = 0; i < pass1.length; i++) {
+            if(pass1[i] != pass2[i])
+                return false;
+        }
+        return true;
+    }
+    
+    public static String charArrayToString(char[] array){
+        String result = null;
+        if(array.length > 0){
+            result = "";
+            for(char c : array)
+                result += c;
+        }
+        return result;
     }
 }

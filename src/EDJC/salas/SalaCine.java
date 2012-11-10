@@ -13,7 +13,21 @@ import java.util.ArrayList;
  */
 public abstract class SalaCine {
     protected SalaLayout layout;
+    protected Tablero sillas;
     protected ArrayList<Pelicula> peliculas;
+    protected double precioTicket;
     
     public abstract void agregarPelicula(Pelicula peli);
+    
+    public Tablero getSillero(){
+        return sillas;
+    }
+    
+    public double getPrecioTicket(){
+        return this.precioTicket;
+    }
+
+    public void setPrecioTicket(double precio){
+        this.precioTicket = precio;
+    }
 }
