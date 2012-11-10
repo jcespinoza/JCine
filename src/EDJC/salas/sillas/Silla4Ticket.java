@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC;
+package EDJC.salas.sillas;
 
 import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;

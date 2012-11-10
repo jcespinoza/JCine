@@ -1,5 +1,6 @@
 package EDJC;
 
+import EDJC.salas.sillas.SeatState;
 import EDJC.salas.SalaLayout;
 import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.Usuario;

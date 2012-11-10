@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC;
+package EDJC.salas.sillas;
 
 import EDJC.util.Coordenada;
 import java.awt.Color;
