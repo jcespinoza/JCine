@@ -15,7 +15,7 @@ import javax.swing.JButton;
  *
  * @author Jay C Espinoza
  */
-public abstract class SillaV extends JButton implements SillaInterface, MouseListener{
+public abstract class SillaV extends JButton implements SillaI, MouseListener{
     private int numero;
     private Coordenada coordenada;
     private char fila;

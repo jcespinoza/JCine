@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
  * @author Jay C Espinoza
  */
 public class Silla4Design extends SillaV{
-    SeatState state;
+    private boolean visible;
 
     public Silla4Design(int num, char fila){
         super(num, fila);
@@ -20,17 +20,18 @@ public class Silla4Design extends SillaV{
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        /*Will change seat color based on the available states
-         * if the state is RESERVADO it shouldn't do anything*
+        visible = !visible;
+        /*
+         * Will play a sound and hide itself. If it's already hidden it will show up and play a diferent sound
          */
-        JOptionPane.showMessageDialog(getParent(), "I'm changing colors!!");
+        if(visible)
+            JOptionPane.showMessageDialog(getParent(), "I just played a sound!!");
+        else
+            JOptionPane.showMessageDialog(getParent(), "I played a diferent sound!");
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        /*Will play a sound when the mouse hover the component
-         * 
-         */
-        JOptionPane.showMessageDialog(getParent(), "I'm playing sounds!");
+        //not needed
     }
 }
