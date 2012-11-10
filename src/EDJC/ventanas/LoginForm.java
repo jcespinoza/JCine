@@ -42,6 +42,11 @@ public class LoginForm extends javax.swing.JDialog {
 
         jButton1.setFont(new java.awt.Font("Cambria", 1, 18)); // NOI18N
         jButton1.setText("Entrar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+        });
 
         jComboBox1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Cliente" }));
@@ -128,6 +133,10 @@ public class LoginForm extends javax.swing.JDialog {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
 
     /**
      * @param args the command line arguments

@@ -50,6 +50,12 @@ public class Test {
          * Testing Login method
          */
         testLogin();
+        
+        /*
+         * Testin enum
+         */
+        SeatState st = SeatState.RESERVADO;
+        System.out.println(st);
     }
     
     public static void testLogin(){
