@@ -6,23 +6,25 @@ package EDJC.salas.sillas;
 
 import EDJC.salas.Tablero;
 import java.awt.Container;
-import java.util.ArrayList;
 
 /**
  *
  * @author Jay C Espinoza
  */
-public class Sillero extends Container implements Tablero{
+public class Sillero extends Container{
     protected SillaI sillas[][];
+    protected int filas;
+    protected int columnas;
 
-    @Override
     public int getFilas() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public int getColumnas() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return this.filas;
     }
     
+    SillaI[][] getSillas(){
+        return sillas;
+    }
+    
+    public int getColumnas(){
+        return this.columnas;
+    }
 }
