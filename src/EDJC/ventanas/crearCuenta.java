@@ -12,6 +12,7 @@ package EDJC.ventanas;
 
 import EDJC.seguridad.Usuario;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 
 
@@ -47,6 +48,8 @@ public class crearCuenta extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
         jbCrear = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtPassword2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -70,14 +73,14 @@ public class crearCuenta extends javax.swing.JFrame {
         getContentPane().add(txtNombre);
         txtNombre.setBounds(130, 190, 170, 30);
 
-        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
-        jLabel4.setText("Password");
+        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel4.setText("Confirmar Password");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(170, 240, 110, 30);
+        jLabel4.setBounds(130, 320, 180, 30);
         getContentPane().add(txtPassword);
         txtPassword.setBounds(130, 270, 170, 30);
 
-        jbCrear.setFont(new java.awt.Font("Tahoma", 1, 12));
+        jbCrear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jbCrear.setText("Crear");
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,15 +88,25 @@ public class crearCuenta extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jbCrear);
-        jbCrear.setBounds(150, 330, 130, 40);
+        jbCrear.setBounds(150, 420, 130, 40);
+
+        jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel5.setText("Password");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(170, 240, 110, 30);
+        getContentPane().add(txtPassword2);
+        txtPassword2.setBounds(130, 360, 170, 30);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
-        setBounds((screenSize.width-448)/2, (screenSize.height-448)/2, 448, 448);
+        setBounds((screenSize.width-448)/2, (screenSize.height-520)/2, 448, 520);
     }// </editor-fold>//GEN-END:initComponents
 
 private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
 // TODO add your handling code here:
     Usuario ut=new Usuario(this.txtUsername.getText(),this.txtPassword.getPassword());
+    //for(Usuario u: usuarios){
+        if(Arrays.equals(txtPassword2.getPassword(), ut.getPassword())){
+            
     if(usuarios.isEmpty()){
         usuarios.add(new Usuario(ut.getUsername(),ut.getPassword()));
             setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
@@ -105,8 +118,8 @@ private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     else {
     
-    for(Usuario u: usuarios){
-        if(u.equals(ut))
+    for(Usuario us: usuarios){
+        if(us.equals(ut))
             JOptionPane.showMessageDialog(this, "Usuario Ya Existente","Error",JOptionPane.ERROR_MESSAGE);
  
         else{
@@ -120,6 +133,9 @@ private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
         }
     }
     }
+        }else
+            JOptionPane.showMessageDialog(this, "Contraseña Incorrecta","Warning",JOptionPane.WARNING_MESSAGE);
+  //  }
 }//GEN-LAST:event_jbCrearActionPerformed
 
     /**
@@ -163,9 +179,11 @@ private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbCrear;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPassword2;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
