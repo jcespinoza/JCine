@@ -21,6 +21,7 @@ import javax.swing.WindowConstants;
  */
 public class Login extends javax.swing.JFrame {
     crearCuenta c=new crearCuenta();
+    MenuAdministrador menu=new MenuAdministrador();
     
     
 
@@ -121,6 +122,7 @@ private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false);
+           menu.setVisible(true);
            return;
 }   
     else if(c.usuarios.isEmpty()){
@@ -131,10 +133,16 @@ private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:
     }
     //For each necesario para obtener el getPassword de cada objeto del ArrayList
     for(Usuario u: c.usuarios){
-        if(c.usuarios.contains(ut)&& Arrays.equals(u.getPassword(), ut.getPassword())){
+        if(Arrays.equals(u.getPassword(), ut.getPassword())==false){
+           JOptionPane.showMessageDialog(this,"Contraseña Incorrecta","Warning",JOptionPane.WARNING_MESSAGE);
+           txtpassword.setText("");
+           return;
+        }
+       else if(c.usuarios.contains(ut)){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false); 
+           menu.setVisible(true);
         }
         else{
             JOptionPane.showMessageDialog(this,"Usuario no Existente","Error",JOptionPane.ERROR_MESSAGE);

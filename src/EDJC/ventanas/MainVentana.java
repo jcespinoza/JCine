@@ -47,7 +47,7 @@ public class MainVentana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24));
         jLabel1.setText("Bienvenido a Cinemark");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(40, 10, 260, 40);
@@ -62,24 +62,36 @@ public class MainVentana extends javax.swing.JFrame {
         getContentPane().add(jbIngresar);
         jbIngresar.setBounds(100, 270, 150, 40);
 
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
+        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel3.setText("Tipo");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(150, 80, 80, 40);
+        jLabel3.setBounds(150, 60, 80, 40);
 
         jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 14));
         jLabel4.setText("Administrador");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(100, 120, 100, 30);
 
-        jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 14));
+        jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 14)); // NOI18N
         jLabel5.setText("Cliente");
         getContentPane().add(jLabel5);
-        jLabel5.setBounds(100, 160, 60, 30);
+        jLabel5.setBounds(100, 180, 60, 30);
+
+        cbAdministrador.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cbAdministradorStateChanged(evt);
+            }
+        });
         getContentPane().add(cbAdministrador);
         cbAdministrador.setBounds(210, 120, 21, 21);
+
+        cdCliente.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                cdClienteStateChanged(evt);
+            }
+        });
         getContentPane().add(cdCliente);
-        cdCliente.setBounds(210, 160, 21, 21);
+        cdCliente.setBounds(210, 180, 21, 21);
 
         java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         setBounds((screenSize.width-363)/2, (screenSize.height-378)/2, 363, 378);
@@ -87,15 +99,15 @@ public class MainVentana extends javax.swing.JFrame {
 
 private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
 // TODO add your handling code here:
-    if(this.cbAdministrador.isSelected()==false&& this.cdCliente.isSelected()==false){
-        JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
+  if(this.cbAdministrador.isSelected()==false&& this.cdCliente.isSelected()==false){
+         JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
         return;
     }  
    else if(this.cbAdministrador.isSelected()==true&& this.cdCliente.isSelected()==true){
-        JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
-        return;
+       JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
+       return;
    }
-   else if(this.cbAdministrador.isSelected()==true){
+    if(this.cbAdministrador.isSelected()==true){
         log.setVisible(true);
         return;
     }
@@ -105,6 +117,18 @@ private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     }
     
 }//GEN-LAST:event_jbIngresarActionPerformed
+
+private void cbAdministradorStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cbAdministradorStateChanged
+// TODO add your handling code here:
+    if(this.cbAdministrador.isSelected())
+        this.cdCliente.setSelected(false);
+}//GEN-LAST:event_cbAdministradorStateChanged
+
+private void cdClienteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cdClienteStateChanged
+// TODO add your handling code here:
+    if(this.cdCliente.isSelected())
+        this.cbAdministrador.setSelected(false);
+}//GEN-LAST:event_cdClienteStateChanged
 
     /**
      * @param args the command line arguments
