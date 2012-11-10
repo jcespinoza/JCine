@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author Edgardo Castellanos
  */
 public class crearCuenta extends javax.swing.JFrame {
-    ArrayList<Usuario> usuarios=new ArrayList<Usuario>();
+    ArrayList<Usuario> usuarios=new ArrayList<>();
     
     
     
@@ -106,11 +106,11 @@ private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     else {
     
     for(Usuario u: usuarios){
-        if(this.txtUsername.getText().equals(u.getUsername()))
+        if(u.equals(ut))
             JOptionPane.showMessageDialog(this, "Usuario Ya Existente","Error",JOptionPane.ERROR_MESSAGE);
  
         else{
-            usuarios.add(new Usuario(this.txtUsername.getText(),this.txtPassword.getPassword()));
+            usuarios.add(new Usuario(ut.getUsername(),ut.getPassword()));
             setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
             setVisible(false); 
             txtUsername.setText("");

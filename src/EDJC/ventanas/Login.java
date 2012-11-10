@@ -114,25 +114,30 @@ private void jbGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
 
 private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbIngresarMouseClicked
 // TODO add your handling code here:
+    Usuario ut=new Usuario(this.txtUsuario.getText(),this.txtpassword.getPassword());
     
-    if(this.txtUsuario.getText().equals("Usuario")){
+    if(ut.getUsername().equals("Usuario")){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false);
            return;
 }   
-    else if(c.usuarios.isEmpty())
+    else if(c.usuarios.isEmpty()){
            JOptionPane.showMessageDialog(this,"Usuario No Existente","Error",JOptionPane.ERROR_MESSAGE);
-    
-    for(Usuario r: c.usuarios){
-        if(this.txtUsuario.getText().equals(r.getUsername()) ){
+           txtUsuario.setText("");
+            txtpassword.setText("");
+           return;
+    }
+        if(c.usuarios.contains(ut) ){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false); 
         }
-        else
+        else{
             JOptionPane.showMessageDialog(this,"Usuario no Existente","Error",JOptionPane.ERROR_MESSAGE);
-    }
+        txtUsuario.setText("");
+            txtpassword.setText("");
+        }
     
 }//GEN-LAST:event_jbIngresarMouseClicked
 
