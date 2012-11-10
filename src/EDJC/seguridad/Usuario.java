@@ -30,8 +30,8 @@ public class Usuario {
     public boolean equals(Object obj){
         boolean sameObjectType = obj instanceof Usuario;
         boolean sameUsername = this.username.equals( ((Usuario)obj).username);
-        boolean sameNombreCompleto = this.NombreCompleto.equals( ((Usuario)obj).NombreCompleto);
-        return sameObjectType && sameUsername && sameNombreCompleto;
+        //boolean sameNombreCompleto = this.NombreCompleto.equals( ((Usuario)obj).NombreCompleto);
+        return sameObjectType && sameUsername;
     }
 
     @Override
