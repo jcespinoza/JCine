@@ -11,6 +11,7 @@
 package EDJC.ventanas;
 
 import EDJC.seguridad.Usuario;
+import java.util.Arrays;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
@@ -128,7 +129,9 @@ private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:
             txtpassword.setText("");
            return;
     }
-        if(c.usuarios.contains(ut) ){
+    //For each necesario para obtener el getPassword de cada objeto del ArrayList
+    for(Usuario u: c.usuarios){
+        if(c.usuarios.contains(ut)&& Arrays.equals(u.getPassword(), ut.getPassword())){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false); 
@@ -138,7 +141,7 @@ private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:
         txtUsuario.setText("");
             txtpassword.setText("");
         }
-    
+    }
 }//GEN-LAST:event_jbIngresarMouseClicked
 
 private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
