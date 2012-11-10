@@ -4,6 +4,8 @@
  */
 package EDJC;
 
+import EDJC.salas.sillas.SillaV;
+import EDJC.salas.sillas.Silla4Design;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

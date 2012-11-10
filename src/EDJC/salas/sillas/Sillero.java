@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC.salas;
+package EDJC.salas.sillas;
 
-import EDJC.SillaI;
+import EDJC.salas.Tablero;
 import java.awt.Container;
 import java.util.ArrayList;
 
