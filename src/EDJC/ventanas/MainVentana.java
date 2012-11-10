@@ -48,11 +48,11 @@ public class MainVentana extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
-        jLabel1.setText("Ventana Principal");
+        jLabel1.setText("Bienvenido a Cinemark");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 10, 220, 40);
+        jLabel1.setBounds(40, 10, 260, 40);
 
-        jbIngresar.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jbIngresar.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jbIngresar.setText("Ingresar");
         jbIngresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,17 +62,17 @@ public class MainVentana extends javax.swing.JFrame {
         getContentPane().add(jbIngresar);
         jbIngresar.setBounds(100, 270, 150, 40);
 
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jLabel3.setText("Tipo");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(150, 80, 80, 40);
 
-        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 14));
         jLabel4.setText("Administrador");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(100, 120, 100, 30);
 
-        jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Traditional Arabic", 1, 14));
         jLabel5.setText("Cliente");
         getContentPane().add(jLabel5);
         jLabel5.setBounds(100, 160, 60, 30);
@@ -87,17 +87,23 @@ public class MainVentana extends javax.swing.JFrame {
 
 private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIngresarActionPerformed
 // TODO add your handling code here:
-    
-    if(this.cbAdministrador.isContentAreaFilled()){
+    if(this.cbAdministrador.isSelected()==false&& this.cdCliente.isSelected()==false){
+        JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
+        return;
+    }  
+   else if(this.cbAdministrador.isSelected()==true&& this.cdCliente.isSelected()==true){
+        JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
+        return;
+   }
+   else if(this.cbAdministrador.isSelected()==true){
         log.setVisible(true);
         return;
     }
-    else if(this.cdCliente.isContentAreaFilled()){
+    else if(this.cdCliente.isSelected()==true){
         JOptionPane.showMessageDialog(this, "blabla","Error",JOptionPane.ERROR_MESSAGE);
         return;
     }
-    else if(this.cbAdministrador.isContentAreaFilled()==false&& this.cdCliente.isContentAreaFilled()==false)
-        JOptionPane.showMessageDialog(this, "Obligatorio escoger una opcion","Error",JOptionPane.ERROR_MESSAGE);
+    
 }//GEN-LAST:event_jbIngresarActionPerformed
 
     /**
