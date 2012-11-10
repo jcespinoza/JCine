@@ -128,7 +128,7 @@ private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:
             txtpassword.setText("");
            return;
     }
-        if(c.usuarios.contains(ut) ){
+        if(c.usuarios.contains(ut)){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
            setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
            setVisible(false); 
