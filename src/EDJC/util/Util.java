@@ -9,6 +9,10 @@ package EDJC.util;
  * @author Jay C Espinoza
  */
 public class Util {
+    
+    /**
+     * Don't let anyone 
+     */
     private Util(){}
     
     /**
@@ -23,5 +27,23 @@ public class Util {
             return cad;
         }
         throw new NullPointerException();
+    }
+    
+    public static boolean passwordsMatch(char[] pass1, char[] pass2){
+        for(int i = 0; i < pass1.length; i++) {
+            if(pass1[i] != pass2[i])
+                return false;
+        }
+        return true;
+    }
+    
+    public static String charArrayToString(char[] array){
+        String result = null;
+        if(array.length > 0){
+            result = "";
+            for(char c : array)
+                result += c;
+        }
+        return result;
     }
 }
