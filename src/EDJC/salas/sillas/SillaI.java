@@ -30,9 +30,6 @@ public interface SillaI extends MouseListener{
     String getFullName();
     char getRowLetter();
     
-    void setSizeS(Dimension d);
-    void setHeightS(int h);
-    void setWidthS(int w);
     void setColorS(Color c);
     void setNumber(int num);
     void setCoordinate(Coordenada c);
