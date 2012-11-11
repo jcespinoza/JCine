@@ -5,7 +5,6 @@
 package EDJC.salas;
 
 import EDJC.peliculas.Pelicula;
-import EDJC.peliculas.Pelicula3D;
 
 /**
  *
@@ -17,7 +16,6 @@ public class Sala3D extends SalaCine{
     public Sala3D(Tipo3DFormato tipo){
         super();
         tipo3D = tipo;
-        setInitialPrice();
     }
     
     /**
@@ -29,10 +27,28 @@ public class Sala3D extends SalaCine{
         this.peliculas.add(peli);
     }
 
-    private void setInitialPrice() {
-        if(tipo3D == Tipo3DFormato.DIGITAL)
-                precioTicket = 90.0;
-        precioTicket = 110.0;
+    @Override
+    public double getPrecioTicket() {
+        switch(tipo3D){
+        case DIGITAL:
+            return precioTicketDigital3D;
+        case EXTREME:
+            return precioTicketXtreme3D;
+        default:
+            return precioTicketReal3D;
+        }
+    }
+
+    @Override
+    public void setPrecioTicket(double precio) {
+        switch(tipo3D){
+        case DIGITAL:
+            precioTicketDigital3D = precio;
+        case EXTREME:
+            precioTicketXtreme3D = precio;
+        default:
+            precioTicketReal3D = precio;
+        }
     }
     
 }

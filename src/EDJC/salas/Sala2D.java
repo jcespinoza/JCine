@@ -15,12 +15,21 @@ public class Sala2D extends SalaCine{
 
     public Sala2D(){
         super();
-        precioTicket = 70.0;
     }
     
     @Override
     public void agregarPelicula(Pelicula peli) {
         if(peli instanceof Pelicula2D)
             this.peliculas.add(peli);
+    }
+
+    @Override
+    public double getPrecioTicket() {
+        return precioTicketNormal;
+    }
+
+    @Override
+    public void setPrecioTicket(double precio) {
+        precioTicketNormal = precio;
     }
 }

@@ -4,29 +4,28 @@
  */
 package EDJC;
 
-import EDJC.salas.sillas.Silla4Design;
-import EDJC.salas.sillas.SillaV;
+import EDJC.salas.sillas.Sillero;
+import EDJC.salas.sillas.Sillero4Design;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 
 /**
  *
  * @author Jay C Espinoza
  */
 public class TestFrame extends JDialog implements ActionListener{
-    private SillaV jc;
+    private Sillero sillas;
     
     public TestFrame(){
         super();
         setSize(new Dimension(400, 320));
-        jc = new Silla4Design(5, 'B');
-        this.getContentPane().setLayout(new FlowLayout());
-        getContentPane().add(jc);
+        sillas = new Sillero4Design(14, 20);
+        this.getContentPane().setLayout(new GridLayout(1, 1));
+        getContentPane().add(sillas);
     }
     
     public static void main(String[] args) {
@@ -37,7 +36,6 @@ public class TestFrame extends JDialog implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() instanceof SillaV)
-            JOptionPane.showMessageDialog(this, "Ye");
+        
     }
 }
