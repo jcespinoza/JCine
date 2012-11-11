@@ -12,7 +12,7 @@ import EDJC.peliculas.Pelicula;
  */
 public interface SalaI {
     void agregarPelicula(Pelicula peli);
-    void setPrecio(double precio);
+    void setPrecioTicket(double precio);
     Tablero getSillero();
     double getPrecioTicket();
 }

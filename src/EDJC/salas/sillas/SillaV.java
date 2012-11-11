@@ -6,7 +6,6 @@ package EDJC.salas.sillas;
 
 import EDJC.util.Coordenada;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -44,23 +43,9 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
     }
 
     @Override
-    public final void setHeightS(int h) {
-        if(h > 0)
-            setSize(getWidth(), h);
-    }
-
-    @Override
     public final void setSize(int width, int height) {
         super.setSize(width, height);
         this.repaint();
-    }
-    
-
-
-    @Override
-    public final void setWidthS(int w) {
-        if(w > 0)
-            setSize(w, getHeight());
     }
 
     @Override
@@ -87,12 +72,6 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
     @Override
     public final int getWidthS() {
         return getWidth();
-    }
-
-    @Override
-    public final void setSizeS(Dimension d) {
-        if(d.width > 0 && d.height > 0 && d.height == d.width)
-            setSize(d);
     }
 
     @Override

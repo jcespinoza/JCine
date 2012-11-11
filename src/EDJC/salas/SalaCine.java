@@ -15,7 +15,10 @@ public abstract class SalaCine implements SalaI{
     protected SalaLayout layout;
     protected Tablero sillas;
     protected ArrayList<Pelicula> peliculas;
-    protected double precioTicket;
+    protected static double precioTicketDigital3D = 90;
+    protected static double precioTicketReal3D = 110;
+    protected static double precioTicketXtreme3D = 110;
+    protected static double precioTicketNormal = 70;
     
     @Override
     public abstract void agregarPelicula(Pelicula peli);
@@ -26,11 +29,8 @@ public abstract class SalaCine implements SalaI{
     }
     
     @Override
-    public double getPrecioTicket(){
-        return this.precioTicket;
-    }
+    public abstract double getPrecioTicket();
 
-    public void setPrecioTicket(double precio){
-        this.precioTicket = precio;
-    }
+    @Override
+    public abstract void setPrecioTicket(double precio);
 }
