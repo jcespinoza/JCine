@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
  * @author Jay C Espinoza
  */
 public class Silla4Design extends SillaV{
-    private boolean visible;
+    private boolean visible = true;
 
     public Silla4Design(int num, char fila){
         super(num, fila);
