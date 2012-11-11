@@ -6,7 +6,10 @@ package EDJC.salas.sillas;
 
 import EDJC.util.Coordenada;
 import java.awt.Color;
+<<<<<<< HEAD
 import java.awt.Insets;
+=======
+>>>>>>> master
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -49,6 +52,7 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
         super.setSize(width, height);
         this.repaint();
     }
+<<<<<<< HEAD
    
     /*@Override
     protected void paintComponent(Graphics g) {
@@ -77,6 +81,8 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
         g2.setFont(font.deriveFont(at));
         g2.drawString(s, 0, 0);
     }*/
+=======
+>>>>>>> master
 
     @Override
     public final void setColorS(Color c) {
