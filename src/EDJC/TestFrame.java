@@ -22,7 +22,7 @@ public class TestFrame extends JDialog implements ActionListener{
     
     public TestFrame(){
         super();
-        setSize(new Dimension(400, 320));
+        setSize(new Dimension(640, 480));
         sillas = new Sillero4Design(14, 20);
         this.getContentPane().setLayout(new GridLayout(1, 1));
         getContentPane().add(sillas);
