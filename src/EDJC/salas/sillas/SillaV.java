@@ -6,6 +6,7 @@ package EDJC.salas.sillas;
 
 import EDJC.util.Coordenada;
 import java.awt.Color;
+import java.awt.Insets;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JButton;
@@ -24,6 +25,7 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
         super("" + num);
         setNumber(num);
         setRowLetter(fila);
+        setMargin(new Insets(0, 0, 0, 0));
         addMouseListener(this);
     }
 
@@ -47,6 +49,34 @@ public abstract class SillaV extends JButton implements SillaI, MouseListener{
         super.setSize(width, height);
         this.repaint();
     }
+   
+    /*@Override
+    protected void paintComponent(Graphics g) {
+        String s = this.getText();
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D)g;
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+                            RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+        g2.setRenderingHint(RenderingHints.KEY_FRACTIONALMETRICS,
+                            RenderingHints.VALUE_FRACTIONALMETRICS_ON);
+        Font font = g2.getFont().deriveFont(36f);
+        g2.setFont(font);
+        FontRenderContext frc = g2.getFontRenderContext();
+        LineMetrics metrics = font.getLineMetrics(s, frc);
+        // Try omitting the descent from the height variable.
+        float height = metrics.getAscent() + metrics.getDescent();
+        double width = font.getStringBounds(s, frc).getWidth();
+        int w = (int)(getWidth() * 0.70);
+        int h = getHeight();
+        double xScale = w/width;
+        double yScale = (double)h/height;
+        double x = (w - xScale*width)/2;
+        double y = (h + yScale*height)/2 - yScale*metrics.getDescent();
+        AffineTransform at = AffineTransform.getTranslateInstance(x, y);
+        at.scale(xScale, yScale);
+        g2.setFont(font.deriveFont(at));
+        g2.drawString(s, 0, 0);
+    }*/
 
     @Override
     public final void setColorS(Color c) {

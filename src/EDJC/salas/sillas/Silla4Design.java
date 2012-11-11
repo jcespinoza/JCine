@@ -4,6 +4,7 @@
  */
 package EDJC.salas.sillas;
 
+import java.awt.FlowLayout;
 import java.awt.event.MouseEvent;
 
 /**
