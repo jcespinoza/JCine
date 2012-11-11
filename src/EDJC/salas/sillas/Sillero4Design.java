@@ -22,7 +22,7 @@ public class Sillero4Design extends Sillero{
     void initTablero() {
         for(int i = 0; i < filas; i++){
             //Agrega una fila que contendrá las sillas por fila indicadas
-            JPanel filaPanel = new JPanel(new GridLayout(i, (columnas + 2), 2, 2));
+            JPanel filaPanel = new JPanel(new GridLayout(1, (columnas + 2), 2, 2));
             //agrega a la fila una etiqueta con la letra de la fila; 65 es el Character 'A' en ASCII. + 1 sería 'B';
             filaPanel.add(new JLabel("" + (char)(65 + i)));
             for(int j = 0; j < columnas; j++){
