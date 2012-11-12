@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
  * @author Edgardo Castellanos
  */
 public class MenuAdministrador extends javax.swing.JFrame {
+    TipoSala t=new TipoSala();
+    AgregarPelicula p=new AgregarPelicula();
 
     /** Creates new form MenuAdministrador */
     public MenuAdministrador() {
@@ -126,10 +128,12 @@ private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
     
      if(this.cb1.isSelected()){
         JOptionPane.showMessageDialog(this, "Agregar Sala de Cine","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
+        t.setVisible(true);
         return;
     }
     else if(this.cb2.isSelected()){
         JOptionPane.showMessageDialog(this, "Agregar Pelicula","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
+        p.setVisible(true);
         return;
     }
     else if(this.cb3.isSelected()){
