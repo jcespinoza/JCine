@@ -15,6 +15,7 @@ package EDJC.ventanas;
  * @author Edgardo Castellanos
  */
 public class TipoSala extends javax.swing.JFrame {
+    AgregarSalaPrototipo sala=new AgregarSalaPrototipo();
 
     /** Creates new form TipoSala */
     public TipoSala() {
@@ -40,17 +41,17 @@ public class TipoSala extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jLabel1.setText("Sala 3D");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(50, 150, 110, 40);
 
-        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jLabel2.setText("Tipo de Sala");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(120, 10, 110, 40);
 
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jLabel3.setText("Sala 2D");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(50, 70, 110, 40);
@@ -71,8 +72,13 @@ public class TipoSala extends javax.swing.JFrame {
         getContentPane().add(cb1);
         cb1.setBounds(210, 80, 21, 21);
 
-        jbAgregar.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
+        jbAgregar.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
         jbAgregar.setText("Agregar");
+        jbAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbAgregarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jbAgregar);
         jbAgregar.setBounds(120, 230, 110, 40);
 
@@ -91,6 +97,11 @@ private void cb2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:eve
     if(this.cb2.isSelected())
         this.cb1.setSelected(false);
 }//GEN-LAST:event_cb2StateChanged
+
+private void jbAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbAgregarActionPerformed
+// TODO add your handling code here:
+    sala.setVisible(true);
+}//GEN-LAST:event_jbAgregarActionPerformed
 
     /**
      * @param args the command line arguments

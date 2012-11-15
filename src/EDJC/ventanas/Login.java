@@ -10,6 +10,7 @@
  */
 package EDJC.ventanas;
 
+import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.Usuario;
 import java.util.Arrays;
 import javax.swing.JOptionPane;
@@ -116,7 +117,12 @@ private void jbGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
 
 private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbIngresarMouseClicked
 // TODO add your handling code here:
-    Usuario ut=new Usuario(this.txtUsuario.getText(),this.txtpassword.getPassword());
+    Usuario ut=new Usuario(this.txtUsuario.getText());
+    /*try{
+         ut.setPassword(this.txtpassword.getPassword());
+    }catch(IllegalPasswordLengthException ex){
+        System.out.println("Error: "+ex.getMessage());
+    }*/
     
     if(ut.getUsername().equals("Usuario")){
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
