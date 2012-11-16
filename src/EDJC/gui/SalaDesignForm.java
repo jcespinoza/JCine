@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
 import EDJC.salas.sillas.Silla4Design;
 import EDJC.salas.sillas.Sillero4Design;

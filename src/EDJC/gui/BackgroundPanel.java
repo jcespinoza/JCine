@@ -1,4 +1,4 @@
-package EDJC.ventanas;
+package EDJC.gui;
 
 import java.awt.*;
 import javax.swing.*;

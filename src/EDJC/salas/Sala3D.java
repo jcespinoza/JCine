@@ -17,6 +17,10 @@ public class Sala3D extends SalaCine{
         super();
         tipo3D = tipo;
     }
+
+    public Sala3D() {
+        tipo3D = Tipo3DFormato.DIGITAL;
+    }
     
     /**
      *

@@ -8,8 +8,13 @@
  *
  * Created on Nov 10, 2012, 12:03:04 PM
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
+import EDJC.Cine;
+import EDJC.peliculas.Pelicula;
+import EDJC.salas.SalaCine;
+import java.util.ArrayList;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,12 +22,19 @@ import javax.swing.JOptionPane;
  * @author Edgardo Castellanos
  */
 public class MenuAdministrador extends javax.swing.JFrame {
-    TipoSala t=new TipoSala();
-    AgregarPelicula p=new AgregarPelicula();
+    Cine adCine;
+    ArrayList<SalaCine> salas;
+    ArrayList<Pelicula> pelis;
+    TipoSalaForm t;
+    AgregarPelicula p;
 
     /** Creates new form MenuAdministrador */
-    public MenuAdministrador() {
+    public MenuAdministrador(Cine adCine) {
+        this.adCine = adCine;
+        salas = adCine.getSalas();
+        pelis = adCine.getPeliculas();
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -68,6 +80,11 @@ public class MenuAdministrador extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel4.setText("2. Agregar Película");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
         getContentPane().add(jLabel4);
         jLabel4.setBounds(40, 170, 180, 40);
 
@@ -127,22 +144,18 @@ private void jbIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FI
  
     
      if(this.cb1.isSelected()){
-        JOptionPane.showMessageDialog(this, "Agregar Sala de Cine","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
+         t = new TipoSalaForm(salas);
         t.setVisible(true);
-        return;
     }
     else if(this.cb2.isSelected()){
-        JOptionPane.showMessageDialog(this, "Agregar Pelicula","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
+        p = new AgregarPelicula(pelis);
         p.setVisible(true);
-        return;
     }
     else if(this.cb3.isSelected()){
         JOptionPane.showMessageDialog(this, "Editar Horarios","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
-        return;
     }
     else if(this.cb4.isSelected()){
         JOptionPane.showMessageDialog(this, "Editar Datos de Perfil","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
-        return;
     }
 }//GEN-LAST:event_jbIngresarActionPerformed
 
@@ -182,6 +195,10 @@ private void cb4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:eve
     }
 }//GEN-LAST:event_cb4StateChanged
 
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        this.adCine.imprimirPeliculas();
+    }//GEN-LAST:event_jLabel4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -213,7 +230,7 @@ private void cb4StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:eve
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
-                new MenuAdministrador().setVisible(true);
+                new MenuAdministrador(new Cine("Prueba")).setVisible(true);
             }
         });
     }
