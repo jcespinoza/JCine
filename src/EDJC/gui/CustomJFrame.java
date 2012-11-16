@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;

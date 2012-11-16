@@ -8,13 +8,16 @@
  *
  * Created on Nov 7, 2012, 4:50:30 PM
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
 import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.Usuario;
+import EDJC.util.Util;
 import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 
 /**
@@ -22,7 +25,7 @@ import javax.swing.JOptionPane;
  * @author Edgardo Castellanos
  */
 public class crearCuenta extends javax.swing.JFrame {
-    ArrayList<Usuario> usuarios=new ArrayList<>();
+    private ArrayList<Usuario> usuarios;
     
     
     
@@ -30,6 +33,12 @@ public class crearCuenta extends javax.swing.JFrame {
     /** Creates new form crearCuenta */
     public crearCuenta() {
         initComponents();
+    }
+
+    crearCuenta(ArrayList<Usuario> users) {
+        usuarios = users;
+        initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -55,19 +64,19 @@ public class crearCuenta extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24));
+        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
         jLabel1.setText("Crear Cuenta");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(140, 20, 146, 35);
 
-        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
+        jLabel2.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel2.setText("Username");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(170, 80, 100, 29);
         getContentPane().add(txtUsername);
         txtUsername.setBounds(130, 110, 170, 30);
 
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
+        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel3.setText("Nombre Completo");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(140, 160, 170, 30);
@@ -103,46 +112,34 @@ public class crearCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-// TODO add your handling code here:
-    Usuario ut=new Usuario(this.txtUsername.getText());
-   try{
-      ut.setPassword(this.txtPassword.getPassword()); 
-   
-   }catch(IllegalPasswordLengthException ex){
-       System.out.println("Error: "+ex.getMessage());
-   }
-    //for(Usuario u: usuarios){
-        if(Arrays.equals(txtPassword2.getPassword(), ut.getPassword())){
-            
-    if(usuarios.isEmpty()){
-        usuarios.add(new Usuario(ut.getUsername()));
-            setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
-            setVisible(false); 
-            txtUsername.setText("");
-            txtNombre.setText("");
-            txtPassword.setText("");
-            
-        }
-    else {
+    String tempUsername = this.txtUsername.getText();
+    char[] tempPass1 = this.txtPassword.getPassword();
+    char[] tempPass2 = this.txtPassword2.getPassword();
+    Usuario ut=new Usuario(tempUsername);
     
-    for(Usuario us: usuarios){
-        if(us.equals(ut))
-            JOptionPane.showMessageDialog(this, "Usuario Ya Existente","Error",JOptionPane.ERROR_MESSAGE);
- 
-        else{
-            usuarios.add(new Usuario(ut.getUsername()));
-            setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
-            setVisible(false); 
-            txtUsername.setText("");
-            txtNombre.setText("");
-            txtPassword.setText("");
-            
+    try{
+        if(Arrays.equals(tempPass1, tempPass2)){
+            ut.setPassword(tempPass1);
+            if(usuarios.isEmpty()){
+                usuarios.add(new Usuario(tempUsername, tempPass1));
+                setVisible(false);
+            }else if(usuarios.contains(ut)){
+                JOptionPane.showMessageDialog(this, "Usuario Ya Existente","Error",JOptionPane.ERROR_MESSAGE);
+            }else{
+                usuarios.add(new Usuario(ut.getUsername(), tempPass1));
+                setVisible(false);
+            }
+        }else
+            JOptionPane.showMessageDialog(this, "Contraseñas no coinciden","Warning",JOptionPane.WARNING_MESSAGE);
+       
+    }catch(IllegalPasswordLengthException ex){
+        JOptionPane.showMessageDialog(this, ex.getMessage());
+    }finally{
+        for(Usuario u: usuarios){
+            System.out.print(u.getUsername() + " ");
+            System.out.println(new String(u.getPassword()));
         }
     }
-    }
-        }else
-            JOptionPane.showMessageDialog(this, "Contraseña Incorrecta","Warning",JOptionPane.WARNING_MESSAGE);
-  //  }
 }//GEN-LAST:event_jbCrearActionPerformed
 
     /**

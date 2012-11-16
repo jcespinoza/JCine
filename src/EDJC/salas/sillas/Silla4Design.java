@@ -5,7 +5,6 @@
 package EDJC.salas.sillas;
 
 import java.awt.event.MouseEvent;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,7 +28,6 @@ public class Silla4Design extends SillaV{
         /*
          * Will play a sound and hide itself. If it's already hidden it will show up and play a diferent sound
          */
-        JOptionPane.showMessageDialog(null, "I'm a " + this.getClass().getSimpleName());
     }
 
     @Override

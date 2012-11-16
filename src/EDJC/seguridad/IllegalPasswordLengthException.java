@@ -11,6 +11,9 @@ package EDJC.seguridad;
 public class IllegalPasswordLengthException extends IllegalArgumentException{
 
     public IllegalPasswordLengthException(int passLength) {
-        super("Password no puede tener " + passLength + " caracteres.", null);
+        super("Password no puede tener " + passLength + " caracteres.");
+    }
+    public IllegalPasswordLengthException(){
+        super("La longitud del password no cumple con los requerimientos de seguridad");
     }
 }
