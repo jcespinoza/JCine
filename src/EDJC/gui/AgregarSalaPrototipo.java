@@ -2,11 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
+import EDJC.salas.SalaCine;
 import EDJC.salas.sillas.Sillero;
 import EDJC.salas.sillas.Sillero4Design;
+import javax.swing.JFrame;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.WindowConstants;
 
 /**
  *
@@ -21,6 +24,12 @@ public class AgregarSalaPrototipo extends javax.swing.JFrame {
     public AgregarSalaPrototipo() {
         initComponents();
         moreInit();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+
+    AgregarSalaPrototipo(SalaCine salaCreada) {
+        this();
+        sala = (Sillero4Design)salaCreada.getSillero();
     }
 
     /**
@@ -113,6 +122,7 @@ public class AgregarSalaPrototipo extends javax.swing.JFrame {
             SalaDesignForm sd = new SalaDesignForm(this, filas, cols);
             sala = sd.getSalaDesign();
             sd.setVisible(true);
+            this.setVisible(false);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

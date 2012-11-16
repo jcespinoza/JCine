@@ -8,27 +8,37 @@
  *
  * Created on Nov 7, 2012, 4:00:35 PM
  */
-package EDJC.ventanas;
+package EDJC.gui;
 
-import EDJC.seguridad.IllegalPasswordLengthException;
+import EDJC.Cine;
 import EDJC.seguridad.Usuario;
+import java.util.ArrayList;
 import java.util.Arrays;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
 
 /**
  *
  * @author Edgardo Castellanos
  */
 public class Login extends javax.swing.JFrame {
-    crearCuenta c=new crearCuenta();
-    MenuAdministrador menu=new MenuAdministrador();
+    Cine lcine;
+    ArrayList<Usuario> users;
+    crearCuenta c;
+    MenuAdministrador menu;
     
     
 
     /** Creates new form Login */
     public Login() {
         initComponents();
+    }
+
+    Login(Cine cine){
+        lcine = cine;
+        users = lcine.getUsuarios();
+        initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -51,30 +61,30 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setFont(new java.awt.Font("AcadEref", 1, 10));
+        setFont(new java.awt.Font("AcadEref", 1, 10)); // NOI18N
         setForeground(new java.awt.Color(153, 0, 0));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24));
+        jLabel1.setFont(new java.awt.Font("Traditional Arabic", 1, 24)); // NOI18N
         jLabel1.setText("LOGIN");
         getContentPane().add(jLabel1);
         jLabel1.setBounds(220, 10, 91, 50);
 
-        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
+        jLabel3.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel3.setText("Usuario");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(230, 70, 80, 27);
         getContentPane().add(txtUsuario);
         txtUsuario.setBounds(190, 100, 160, 30);
 
-        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 18));
+        jLabel4.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jLabel4.setText("Password");
         getContentPane().add(jLabel4);
         jLabel4.setBounds(230, 180, 80, 30);
         getContentPane().add(txtpassword);
         txtpassword.setBounds(190, 210, 160, 30);
 
-        jbCrear.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jbCrear.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbCrear.setText("Crear Cuenta");
         jbCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,7 +94,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jbCrear);
         jbCrear.setBounds(370, 290, 110, 40);
 
-        jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jbIngresar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbIngresar.setText("Ingresar");
         jbIngresar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -94,7 +104,7 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jbIngresar);
         jbIngresar.setBounds(210, 290, 120, 40);
 
-        jbGuest.setFont(new java.awt.Font("Tahoma", 1, 11));
+        jbGuest.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jbGuest.setText("Guest");
         jbGuest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,59 +120,35 @@ public class Login extends javax.swing.JFrame {
 
 private void jbGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuestActionPerformed
 // TODO add your handling code here:
-   this.txtUsuario.setText("Usuario"); 
-   this.txtpassword.setText("Password");
-   
+   this.txtUsuario.setText("usuario"); 
+   this.txtpassword.setText("password");
 }//GEN-LAST:event_jbGuestActionPerformed
 
 private void jbIngresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbIngresarMouseClicked
 // TODO add your handling code here:
     Usuario ut=new Usuario(this.txtUsuario.getText());
-    /*try{
-         ut.setPassword(this.txtpassword.getPassword());
-    }catch(IllegalPasswordLengthException ex){
-        System.out.println("Error: "+ex.getMessage());
-    }*/
-    
-    if(ut.getUsername().equals("Usuario")){
-           JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
-           setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
-           setVisible(false);
-           menu.setVisible(true);
-           return;
-}   
-    else if(c.usuarios.isEmpty()){
-           JOptionPane.showMessageDialog(this,"Usuario No Existente","Error",JOptionPane.ERROR_MESSAGE);
-           txtUsuario.setText("");
-            txtpassword.setText("");
-           return;
-    }
-    //For each necesario para obtener el getPassword de cada objeto del ArrayList
-    for(Usuario u: c.usuarios){
-        if(Arrays.equals(u.getPassword(), ut.getPassword())==false){
+    //For each necesario para obtener el Password de cada objeto del ArrayList
+    if(users.contains(ut)){
+        Usuario inU = users.get(users.indexOf(ut));
+        if( ! Arrays.equals(inU.getPassword(), txtpassword.getPassword()) ){
            JOptionPane.showMessageDialog(this,"Contraseña Incorrecta","Warning",JOptionPane.WARNING_MESSAGE);
            txtpassword.setText("");
-           return;
-        }
-       else if(c.usuarios.contains(ut)){
+        }else{
            JOptionPane.showMessageDialog(this,"Bienvenido","Bien hecho",JOptionPane.INFORMATION_MESSAGE);
-           setDefaultCloseOperation(Login.HIDE_ON_CLOSE);
-           setVisible(false); 
+           menu = new MenuAdministrador(lcine);
            menu.setVisible(true);
+           setVisible(false);
         }
-        else{
-            JOptionPane.showMessageDialog(this,"Usuario no Existente","Error",JOptionPane.ERROR_MESSAGE);
+    }else{
+        JOptionPane.showMessageDialog(this,"Usuario no Existente","Error",JOptionPane.ERROR_MESSAGE);
         txtUsuario.setText("");
-            txtpassword.setText("");
-        }
+        txtpassword.setText("");
     }
 }//GEN-LAST:event_jbIngresarMouseClicked
 
 private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
-// TODO add your handling code here:
-   
+    c = new crearCuenta(users);
     c.setVisible(true);
-   
 }//GEN-LAST:event_jbCrearActionPerformed
 
     /**

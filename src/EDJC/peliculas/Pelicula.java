@@ -25,4 +25,25 @@ public class Pelicula {
     public boolean is3D(){
         return (this instanceof Pelicula3D);
     }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public GeneroPelicula getGenero() {
+        return genero;
+    }
+
+    public TipoClasificacion getClasificacion() {
+        return clasificacion;
+    }
+
+    public TipoPelicula getTipo() {
+        return tipo;
+    }
+    
 }

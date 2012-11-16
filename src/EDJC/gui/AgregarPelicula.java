@@ -8,17 +8,40 @@
  *
  * Created on Nov 12, 2012, 3:38:56 PM
  */
-package EDJC.ventanas;
+package EDJC.gui;
+
+import EDJC.peliculas.GeneroPelicula;
+import EDJC.peliculas.Pelicula;
+import EDJC.peliculas.Pelicula2D;
+import EDJC.peliculas.Pelicula3D;
+import EDJC.peliculas.TipoClasificacion;
+import EDJC.peliculas.TipoPelicula;
+import java.util.ArrayList;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Edgardo Castellanos
  */
 public class AgregarPelicula extends javax.swing.JFrame {
+    ArrayList<Pelicula> peliculas;
+    private int duracion;
+    private String nombre;
+    private GeneroPelicula genero;
+    private TipoClasificacion clas;
+    private TipoPelicula tipo;
 
     /** Creates new form AgregarPelicula */
     public AgregarPelicula() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+    }
+
+    AgregarPelicula(ArrayList<Pelicula> pelis) {
+        peliculas = pelis;
+        initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }
 
     /** This method is called from within the constructor to
@@ -199,6 +222,11 @@ public class AgregarPelicula extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Traditional Arabic", 1, 18)); // NOI18N
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1);
         jButton1.setBounds(180, 440, 140, 40);
 
@@ -214,6 +242,7 @@ private void rdAnimadaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIR
         this.rdDocumental.setSelected(false);
         this.rdDrama.setSelected(false);
         this.rdMusical.setSelected(false);
+        this.genero = GeneroPelicula.ANIMADA;
     }
         
 }//GEN-LAST:event_rdAnimadaStateChanged
@@ -226,6 +255,7 @@ private void rdDramaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST
         this.rdDocumental.setSelected(false);
         this.rdAnimada.setSelected(false);
         this.rdMusical.setSelected(false);
+        this.genero = GeneroPelicula.DRAMA;
     }
 }//GEN-LAST:event_rdDramaStateChanged
 
@@ -237,6 +267,7 @@ private void rdAccionStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRS
         this.rdDocumental.setSelected(false);
         this.rdDrama.setSelected(false);
         this.rdMusical.setSelected(false);
+        this.genero = GeneroPelicula.ACCION;
     }
 }//GEN-LAST:event_rdAccionStateChanged
 
@@ -248,6 +279,7 @@ private void rdMusicalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIR
         this.rdDocumental.setSelected(false);
         this.rdDrama.setSelected(false);
         this.rdAnimada.setSelected(false);
+        this.genero = GeneroPelicula.MUSICAL;
     }
 }//GEN-LAST:event_rdMusicalStateChanged
 
@@ -259,6 +291,7 @@ private void rdDocumentalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-
         this.rdAnimada.setSelected(false);
         this.rdDrama.setSelected(false);
         this.rdMusical.setSelected(false);
+        this.genero = GeneroPelicula.DOCUMENTAL;
     }
 }//GEN-LAST:event_rdDocumentalStateChanged
 
@@ -270,6 +303,7 @@ private void rdComediaStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIR
         this.rdDocumental.setSelected(false);
         this.rdDrama.setSelected(false);
         this.rdMusical.setSelected(false);
+        this.genero = GeneroPelicula.COMEDIA;
     }
 }//GEN-LAST:event_rdComediaStateChanged
 
@@ -279,6 +313,7 @@ private void rdTodosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST
         this.rd15.setSelected(false);
         this.rd18.setSelected(false);
         this.rdAdultos.setSelected(false);
+        this.clas = TipoClasificacion.TODO_PUBLICO;
     }
 }//GEN-LAST:event_rdTodosStateChanged
 
@@ -288,6 +323,7 @@ private void rd18StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:ev
         this.rd15.setSelected(false);
         this.rdTodos.setSelected(false);
         this.rdAdultos.setSelected(false);
+        this.clas = TipoClasificacion.MAYORES_18;
     }
 }//GEN-LAST:event_rd18StateChanged
 
@@ -297,6 +333,7 @@ private void rd15StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:ev
         this.rdTodos.setSelected(false);
         this.rd18.setSelected(false);
         this.rdAdultos.setSelected(false);
+        this.clas = TipoClasificacion.MAYORES_15;
     }
 }//GEN-LAST:event_rd15StateChanged
 
@@ -306,6 +343,7 @@ private void rdAdultosStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIR
         this.rd15.setSelected(false);
         this.rd18.setSelected(false);
         this.rdTodos.setSelected(false);
+        this.clas = TipoClasificacion.ADULTOS;
     }
 }//GEN-LAST:event_rdAdultosStateChanged
 
@@ -313,13 +351,46 @@ private void cb2DStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:ev
 // TODO add your handling code here:
     if(this.cb2D.isSelected())
         this.cb3D.setSelected(false);
+    this.tipo = TipoPelicula.PELICULA2D;
+            
 }//GEN-LAST:event_cb2DStateChanged
 
 private void cb3DStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_cb3DStateChanged
 // TODO add your handling code here:
     if(this.cb3D.isSelected())
         this.cb2D.setSelected(false);
+    this.tipo = TipoPelicula.PELICULA3D;
 }//GEN-LAST:event_cb3DStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try{
+            duracion = Integer.parseInt(txtDuracion.getText());
+            nombre = txtNombre.getText();
+            
+            Pelicula peli;
+            if(tipo == TipoPelicula.PELICULA2D){
+                peli = new Pelicula2D(duracion, nombre, genero, clas);
+            }else{
+                peli = new Pelicula3D(duracion, nombre, genero, clas);
+            }
+            
+            if(nombre == null || tipo == null || genero == null
+                    || clas == null)
+                throw new NullPointerException();
+            
+            this.peliculas.add(peli);
+            
+            this.setVisible(false);
+            
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "No ingreso enteros en el campo de la duracion");
+        }catch(NullPointerException ex){
+            JOptionPane.showMessageDialog(this, "Falta informacion");
+        }catch(Exception ex){
+            System.out.println("Un error esta impidiendo que la pelicula se agregue");
+            ex.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

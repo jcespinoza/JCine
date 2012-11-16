@@ -16,7 +16,10 @@ public class Usuario {
     
     public Usuario(String username){
         this.username = username;
-        
+    }
+    public Usuario(String username, char[] pass){
+        this(username); // :D
+        setPassword(pass);
     }
     
     /**
