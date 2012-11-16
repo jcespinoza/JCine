@@ -8,7 +8,7 @@ package EDJC.seguridad;
  *
  * @author Jay C Espinoza
  */
-public class InvalidPasswordException extends Exception{
+public class InvalidPasswordException extends IllegalArgumentException{
 
     public InvalidPasswordException() {
         super("El password suministrado es invalido");

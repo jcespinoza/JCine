@@ -14,9 +14,9 @@ public class Usuario {
     private String NombreCompleto;
     private boolean CredencialActiva = true;
     
-    public Usuario(String username, char[] pass){
+    public Usuario(String username){
         this.username = username;
-        password = pass;
+        
     }
     
     /**

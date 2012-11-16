@@ -10,6 +10,7 @@
  */
 package EDJC.ventanas;
 
+import EDJC.seguridad.IllegalPasswordLengthException;
 import EDJC.seguridad.Usuario;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -103,12 +104,18 @@ public class crearCuenta extends javax.swing.JFrame {
 
 private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCrearActionPerformed
 // TODO add your handling code here:
-    Usuario ut=new Usuario(this.txtUsername.getText(),this.txtPassword.getPassword());
+    Usuario ut=new Usuario(this.txtUsername.getText());
+   try{
+      ut.setPassword(this.txtPassword.getPassword()); 
+   
+   }catch(IllegalPasswordLengthException ex){
+       System.out.println("Error: "+ex.getMessage());
+   }
     //for(Usuario u: usuarios){
         if(Arrays.equals(txtPassword2.getPassword(), ut.getPassword())){
             
     if(usuarios.isEmpty()){
-        usuarios.add(new Usuario(ut.getUsername(),ut.getPassword()));
+        usuarios.add(new Usuario(ut.getUsername()));
             setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
             setVisible(false); 
             txtUsername.setText("");
@@ -123,7 +130,7 @@ private void jbCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
             JOptionPane.showMessageDialog(this, "Usuario Ya Existente","Error",JOptionPane.ERROR_MESSAGE);
  
         else{
-            usuarios.add(new Usuario(ut.getUsername(),ut.getPassword()));
+            usuarios.add(new Usuario(ut.getUsername()));
             setDefaultCloseOperation(crearCuenta.HIDE_ON_CLOSE);
             setVisible(false); 
             txtUsername.setText("");
