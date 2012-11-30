@@ -13,6 +13,15 @@ public class Usuario {
     private char[] password;
     private String NombreCompleto;
     private boolean CredencialActiva = true;
+    private String fotoPath;
+
+    public String getFotoPath() {
+        return fotoPath;
+    }
+
+    public void setFotoPath(String fotoPath) {
+        this.fotoPath = fotoPath;
+    }
     
     public Usuario(String username){
         this.username = username;
@@ -72,5 +81,9 @@ public class Usuario {
 
     public boolean isCredencialActiva() {
         return CredencialActiva;
+    }
+
+    public String getNombreCompleto() {
+        return this.NombreCompleto;
     }
 }
