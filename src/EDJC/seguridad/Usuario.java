@@ -57,6 +57,9 @@ public class Usuario {
         
         this.password = password;
     }
+    public void SetNombreCompleto(String nombre){
+        this.NombreCompleto=nombre;
+    }
 
     public void setCredencialActiva(boolean CredencialActiva) {
         this.CredencialActiva = CredencialActiva;
@@ -68,6 +71,9 @@ public class Usuario {
 
     public char[] getPassword() {
         return password;
+    }
+    public String getNombreCompleto(){
+        return this.NombreCompleto;
     }
 
     public boolean isCredencialActiva() {
