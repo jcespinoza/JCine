@@ -12,6 +12,12 @@ package EDJC.gui;
 
 import EDJC.Cine;
 import EDJC.seguridad.Usuario;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -29,6 +35,7 @@ public class MainVentana extends javax.swing.JFrame {
         cine.getUsuarios().add(new Usuario("ed", "123456".toCharArray()));
         cine.getUsuarios().add(new Usuario("nadie", "123456".toCharArray()));
         initComponents();
+        createFiles();
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -176,4 +183,24 @@ private void cdClienteStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIR
     private javax.swing.JLabel jLabel5;
     private javax.swing.JButton jbIngresar;
     // End of variables declaration//GEN-END:variables
+
+    private void createFiles() {
+        File cine = new File("cine");
+        if(!cine.exists())
+            cine.mkdir();
+        RandomAccessFile dataFile = null;
+        try {        
+            dataFile = new RandomAccessFile("GeneralData.mov", "r");
+            if( dataFile.length() == 0)
+                dataFile.writeInt(0);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex);
+        }catch( IOException ex){
+            
+        }finally{
+            if( dataFile != null)
+                dataFile.close();
+        }
+
+    }
 }
